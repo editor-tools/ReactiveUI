@@ -37,7 +37,8 @@
     <DefineConstants>TRACE;NET_45; XAML</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\Release\Net45\ReactiveUI.xml</DocumentationFile>
+    <DocumentationFile>
+    </DocumentationFile>
     <NoWarn>1591, 1573, 1711, 1587, 1570, 1572</NoWarn>
   </PropertyGroup>
   <PropertyGroup>
