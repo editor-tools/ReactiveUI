@@ -36,7 +36,7 @@
     <IntermediateOutputPath>bin\Release\Net45</IntermediateOutputPath>
     <DefineConstants>TRACE;NET_45; XAML</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>0</WarningLevel>
     <DocumentationFile>
     </DocumentationFile>
     <NoWarn>1591, 1573, 1711, 1587, 1570, 1572</NoWarn>
