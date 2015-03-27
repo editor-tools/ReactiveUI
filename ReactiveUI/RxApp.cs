@@ -69,7 +69,12 @@ namespace ReactiveUI
                 LogHost.Default.Warn("ReactiveUI acts differently under a test runner, see the docs\n");
                 LogHost.Default.Warn("for more info about what to expect");
 
+                // This sets _UnitTestMainThreadScheduler but only on the current thread. It doesn't set 
+                // _MainThreadScheduler if it's already been set. And the registration code generally sets this to a
+                // WaitForDispatcherScheduler _before_ we get to this line.
                 MainThreadScheduler = CurrentThreadScheduler.Instance;
+                // This is why we _also_ have to set the field.
+                _MainThreadScheduler = MainThreadScheduler;
                 return;
             } else {
                 LogHost.Default.Info("Initializing to normal mode");
