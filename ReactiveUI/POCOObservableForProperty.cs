@@ -21,13 +21,18 @@ namespace ReactiveUI
         static readonly Dictionary<Type, bool> hasWarned = new Dictionary<Type, bool>();
         public IObservable<IObservedChange<object, object>> GetNotificationForProperty(object sender, Expression expression, bool beforeChanged = false)
         {
-            var type = sender.GetType();
-            if (!hasWarned.ContainsKey(type)) {
-                this.Log().Warn(
-                    "{0} is a POCO type and won't send change notifications, WhenAny will only return a single value!",
-                    type.FullName);
-                hasWarned[type] = true;
+            try
+            {
+                var type = sender.GetType();
+                if (!hasWarned.ContainsKey(type)) {
+                    this.Log().Warn(
+                        "{0} is a POCO type and won't send change notifications, WhenAny will only return a single value!",
+                        type.FullName);
+                    hasWarned[type] = true;
+                }
             }
+            catch
+            {}
 
             return Observable.Return(new ObservedChange<object, object>(sender, expression), RxApp.MainThreadScheduler)
                 .Concat(Observable.Never<IObservedChange<object, object>>());
