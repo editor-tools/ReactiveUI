@@ -21,7 +21,6 @@ namespace ReactiveUI
         {
             var extraNs = new[] {
                 "ReactiveUI.XamForms",
-                "ReactiveUI.Winforms", 
             };
 
             // Set up the built-in registration
