@@ -384,7 +384,7 @@ namespace ReactiveUI
         }
     }
 
-    public class RelayCommand : ICommand
+    internal class RelayCommand : ICommand
     {
         readonly Func<object, bool> canExecute;
         readonly Action<object> execute;
