@@ -13,7 +13,10 @@ namespace ReactiveUI
         {
             registerFunction(() => new ComponentModelTypeConverter(), typeof(IBindingTypeConverter));
             RxApp.TaskpoolScheduler = TaskPoolScheduler.Default;
-            RxApp.MainThreadScheduler = DefaultScheduler.Instance;
+
+            if (!Splat.ModeDetector.InUnitTestRunner()) {
+                RxApp.MainThreadScheduler = DefaultScheduler.Instance;
+            }
         }
     }
 }

@@ -20,7 +20,9 @@ namespace ReactiveUI.Wpf
 
             RxApp.TaskpoolScheduler = TaskPoolScheduler.Default;
 
-            RxApp.MainThreadScheduler = new WaitForDispatcherScheduler(() => DispatcherScheduler.Current);
+            if (!Splat.ModeDetector.InUnitTestRunner()) {
+                RxApp.MainThreadScheduler = new WaitForDispatcherScheduler(() => DispatcherScheduler.Current);
+            }
         }
     }
 }
