@@ -12,4 +12,11 @@
     <ProjectReference Include="..\ReactiveUI\ReactiveUI.csproj" />    
     <Compile Include="..\ReactiveUI\Platforms\windows-common\**\*.cs" />
   </ItemGroup>
+  
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="System.Xaml" />
+  </ItemGroup> 
 </Project>
